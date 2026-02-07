@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For You ❤️</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff758c,#fad0c4);
+font-family:Arial;
+overflow:hidden;
+}
+
+/* CARD */
+.card{
+background:white;
+width:320px;
+padding:25px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 0 40px pink;
+z-index:5;
+position:relative;
+}
+
+/* BUTTON */
+button{
+background:#ff2f68;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:20px;
+margin-top:15px;
+}
+
+/* ROSE SHOWER (FULL SCREEN) */
+.rose{
+position:fixed;
+font-size:26px;
+animation:fall linear infinite;
+z-index:1;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh) rotate(0deg);}
+100%{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* HEART BOOM */
+.boom{
+position:fixed;
+font-size:30px;
+animation:boom 1s ease-out forwards;
+z-index:10;
+}
+
+@keyframes boom{
+0%{transform:scale(0);}
+100%{transform:scale(2);opacity:0;}
+}
+
+/* FIREWORK HEART */
+.fire{
+position:fixed;
+font-size:34px;
+animation:fire 1.2s ease-out forwards;
+z-index:10;
+}
+
+@keyframes fire{
+0%{transform:scale(0);}
+100%{transform:scale(2);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Romantic online music -->
+<audio autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+<h2>Hey u ❤️</h2>
+
+<p>You’re the reason my phone battery dies faster and smile appears randomly 😆 I promise to annoy you forever. 
+love you more than pani puri and biryani combined, 
+😏 I still choose you over free Wi-Fi ❤️. 
+💌 💖😅You make the world brighter everyday. ✅🤣
+</p>
+
+<button onclick="boom();fireworks()">Click Me 💘</button>
+</div>
+
+<script>
+
+/* SUPER DENSE ROSE SHOWER */
+function rose(){
+let r=document.createElement("div");
+r.className="rose";
+r.innerHTML="🌹";
+r.style.left=Math.random()*100+"vw";
+r.style.animationDuration=(Math.random()*3+3)+"s";
+document.body.appendChild(r);
+setTimeout(()=>r.remove(),7000);
+}
+
+/* LOTS of roses */
+setInterval(rose,120);
+
+/* HEART BOOM */
+function boom(){
+for(let j=0;j<30;j++){
+let b=document.createElement("div");
+b.className="boom";
+b.innerHTML="❤️";
+b.style.left="50vw";
+b.style.top="50vh";
+b.style.transform=`translate(${Math.random()*300-150}px,${Math.random()*300-150}px)`;
+document.body.appendChild(b);
+setTimeout(()=>b.remove(),1000);
+}
+}
+
+/* FIREWORKS */
+function fireworks(){
+for(let j=0;j<50;j++){
+let f=document.createElement("div");
+f.className="fire";
+f.innerHTML="❤️";
+f.style.left="50vw";
+f.style.top="50vh";
+f.style.transform=`translate(${Math.random()*450-225}px,${Math.random()*450-225}px)`;
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),1200);
+}
+}
+</script>
+
+</body>
+</html>
